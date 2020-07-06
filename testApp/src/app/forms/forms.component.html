@@ -1,0 +1,41 @@
+<div class="container">
+<div>
+<form class="card card-body">
+    <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" class="form-control" id="fname" placeholder="First Name" [(ngModel)]="firstName" [ngModelOptions]="{standalone:true}">
+      </div>    
+    <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="Last Name" [(ngModel)]="lastName"  [ngModelOptions]="{standalone:true}">
+      </div>
+      <div class="form-group">
+        <label for="empId">EmployeeId</label>
+        <input type="text" class="form-control" id="empId" placeholder="Emp ID" [(ngModel)]="empID"  [ngModelOptions]="{standalone:true}">
+      </div>
+
+    <div class="action-button">
+      <button class="btn btn-success" (click)="addEmployee()">save</button>
+    <button class="btn btn-primary" (click)="display=true"> Display</button>  
+    <button class="btn btn-danger" (click)="deleteEmployee()">Delete</button>       
+    </div>
+</form>
+</div>
+<table *ngIf="display==true" class="table">
+    <thead>
+      <tr>
+        <th scope="col">EmployeeID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of datas">
+          <td>{{data.employeeId}}</td>
+          <td>{{data.firstName}}</td>
+          <td>{{data.lastName}}</td>
+      </tr>
+    </tbody>
+    <button class="btn btn-warning" (click)="display=false">close</button>
+  </table>
+</div>
